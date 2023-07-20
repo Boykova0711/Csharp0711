@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using NUnit.Framework;
+using static WebAddressbookTests.GroupHelper;
 
 namespace WebAddressbookTests
 {
@@ -12,17 +13,16 @@ namespace WebAddressbookTests
         [Test]
         public void GroupCreationTest()
         {
-            OpenHomePage();
-
-            Login(new AccountData ("admin", "secret"));
-            GoToGroupPage();
-            InitGroupCreation();
+            navigator?.OpenHomePage();
+            loginHelper?.Login(new AccountData ("admin", "secret"));
+            navigator?.GoToGroupPage();
+            groupHelper?.InitGroupCreation();
             GroupData group = new GroupData("test");
             group.Header = "testoviy";
             group.Footer = "test123";
-            FillGroupForm(group);
-            SubmitGroupCreation();
-            ReturnGroupPage();
+            groupHelper?.FillGroupForm(group);
+            groupHelper?.SubmitGroupCreation();
+            groupHelper?.ReturnGroupPage();
         }        
     }
 }
