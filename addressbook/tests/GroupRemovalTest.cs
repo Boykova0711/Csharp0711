@@ -4,7 +4,6 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using NUnit.Framework;
 
-
 namespace WebAddressbookTests
 {
     [TestFixture]
@@ -13,12 +12,8 @@ namespace WebAddressbookTests
         [Test]
         public void GroupRemovalTest()
         {
-            navigator?.OpenHomePage();
-            loginHelper?.Login(new AccountData("admin", "secret"));
-            navigator?.GoToGroupPage();
-            groupHelper?.SelectGroup(3);
-            groupHelper?.RemoveGroup();
-            groupHelper?.ReturnToGroupsPage();
+            app.Groups.Remove(1);
+           
         }
 
     }
